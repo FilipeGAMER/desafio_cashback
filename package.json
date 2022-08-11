@@ -1,0 +1,42 @@
+{
+  "name": "desafio_cashback",
+  "version": "1.0.0",
+  "description": "Desafio de cashback para revendedor(a) GB",
+  "main": "server.js",
+  "type": "module",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "tap \"test/**/*.test.js\"",
+    "dev": "nodemon server.js",
+    "start": "node server.js &"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FilipeGAMER/desafio_cashback.git"
+  },
+  "keywords": [],
+  "author": "Filipe Lima",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/FilipeGAMER/desafio_cashback/issues"
+  },
+  "homepage": "https://github.com/FilipeGAMER/desafio_cashback#readme",
+  "dependencies": {
+    "@fastify/autoload": "^5.0.0",
+    "@fastify/sensible": "^4.1.0",
+    "fastify": "^4.0.0",
+    "fastify-cli": "^4.4.0",
+    "fastify-plugin": "^3.0.0",
+    "path": "^0.12.7",
+    "sequelize": "^6.21.3",
+    "sequelize-cli": "^6.4.1",
+    "sqlite3": "^5.0.11"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.19",
+    "pino-pretty": "^9.0.0",
+    "tap": "^16.1.0"
+  }
+}

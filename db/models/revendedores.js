@@ -55,7 +55,7 @@ async function model (sequelize, DataTypes, Op) {
     })
   }
   
-  await Revendedores.sync()
+  await Revendedores.sync({ logging: false })
 
   return Revendedores
 

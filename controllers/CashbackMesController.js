@@ -1,6 +1,7 @@
 import db from "../db/models/index.js"
 
 const options = await db.classMethods.CashbackMes.queryOptions()
+const formataValor = db.classMethods.CashbackMes.formataValor
 
 class CashbackMesController {
 
@@ -12,7 +13,9 @@ class CashbackMesController {
         return reply.notFound()
       }
 
-      return reply.code(200).send(allCashbackMes)
+      let newAllCashbackMes = await formataValor(allCashbackMes);
+
+      return reply.code(200).send(newAllCashbackMes)
 
     } catch (err) {
       throw err
@@ -28,9 +31,10 @@ class CashbackMesController {
       if (cashbackMes.length === 0) {
         return reply.notFound()
       }
-      
-      return reply.code(200).send(cashbackMes)
 
+      let newCashbackMes = await formataValor(cashbackMes);
+
+      return reply.code(200).send(newCashbackMes)
 
     } catch (err) {
       throw err

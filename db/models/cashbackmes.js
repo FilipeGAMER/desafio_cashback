@@ -43,7 +43,7 @@ async function model (sequelize, DataTypes, _Op) {
     })
   }
 
-  await CashbackMes.sync()
+  await CashbackMes.sync({ logging: false })
 
   return CashbackMes
 }

@@ -33,7 +33,7 @@ class ComprasController {
         return reply.notFound('Nenhuma compra cadastrada para o CPF')
       }
       
-      let newCompras = await preencheCompras(allCompras, db.CashbackMes);
+      let newCompras = await preencheCompras(compras, db.CashbackMes);
       
       return reply.code(200).send(newCompras)
 

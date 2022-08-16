@@ -83,6 +83,19 @@ db.classMethods = {
   CashbackMes: {
     queryOptions: function () {
       return { attributes: [ 'mes', 'ano', 'valor', 'percentual', 'cpf' ] }
+    },
+    formataValor: async function (allCashbackMes) {
+      return Promise.all(
+        allCashbackMes.map(async (cashbackMes) => {
+          return new Promise(async (resolve, reject) => {
+            cashbackMes = JSON.parse(JSON.stringify(cashbackMes))
+
+            cashbackMes.valor = parseFloat(cashbackMes.valor).toFixed(2)
+          
+            resolve(cashbackMes)
+          })
+        })
+      )
     }
   }
 }

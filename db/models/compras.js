@@ -32,7 +32,7 @@ async function model (sequelize, DataTypes, _Op) {
     paranoid: true,
   })
 
-  await Compras.sync()
+  await Compras.sync({ logging: false })
   
   return Compras
 

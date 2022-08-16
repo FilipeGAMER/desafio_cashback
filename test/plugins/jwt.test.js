@@ -43,8 +43,9 @@ test('Teste plugin jwt >', async t => {
         authorization: "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjcGYiOjQzODY3NTgzMTM3LCJlbWFpbCI6ImZpbGlwZS5saW1hQHRlc3RlLmNvbSIsImlhdCI6MTY2MDU5MjQwOCwiZXhwIjoxNjYwNTk0MjA4fQ.2dEe_HaZXWG_LzjFnsmmqxkode3qc4UbDRvDDU5t_94" 
       }
     }).then((response) => {
-      t.equal(response.statusCode, 401, 'retorna HTTP 401')
-      t.equal(response.json().message, "jwt expired", 'retorna mensagem de token expirado')
+      console.log(response)
+      t.equal(response.statusCode, 500, 'retorna HTTP 500')
+      t.equal(response.json().message, "invalid signature", 'retorna mensagem de assinatura inválida')
     })
   })
 

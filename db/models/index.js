@@ -58,9 +58,20 @@ db.classMethods = {
 
             const [ano, mes, dia] = compra.data.split('-')
             let cashbackMes = await CashbackMesDB.findOne({ attributes: [ 'percentual' ], where: { cpf: compra.cpf, mes: parseInt(mes), ano: parseInt(ano)}})
-    
-            compra.percentual = cashbackMes.percentual
-            compra.valorCashback = parseFloat(compra.valor * (cashbackMes.percentual / 100)).toFixed(2)
+
+            if (cashbackMes) { 
+              compra.percentual = cashbackMes.percentual
+            } else {
+              if (compra.valor <= 1000) {
+                compra.percentual = 10
+              } else if (compra.valor > 1000 && compra.valor <= 1500) {
+                compra.percentual = 15
+              } else if (compra.valor > 1500) {
+                compra.percentual = 20
+              }
+            }
+            
+            compra.valorCashback = parseFloat(compra.valor * (compra.percentual / 100)).toFixed(2)
             compra.valor = parseFloat(compra.valor).toFixed(2)
           
             resolve(compra)

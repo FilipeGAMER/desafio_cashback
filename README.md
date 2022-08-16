@@ -132,7 +132,7 @@ Para iniciar o projeto em modo dev, com log no console e em arquivo.
 
 Para iniciar em modo de produção, com log em arquivo.
 
-### `npm run test`
+### `npm test`
 
 Para rodar os casos de teste.
 
